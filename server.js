@@ -2,7 +2,7 @@ const express = require("express"); // express
 const cors = require("cors"); // localhost
 const errHandler = require("./middlewears/errHandler"); // errH md
 const pageNotFound = require("./middlewears/pageNotFound"); // PNF md
-const dbConnection = require("./config/DBConnection"); // db config
+const { DBConnection } = require("./config/DBConnection"); // db config
 
 // Init app
 const server = express();
@@ -14,7 +14,7 @@ server.use(cors());
 server.use("/uploads", express.static("uploads"));
 
 // Connecting to MongoDB
-dbConnection();
+DBConnection();
 
 // methods
 server.use("/dashboard", require("./routes/dashBoard"));
